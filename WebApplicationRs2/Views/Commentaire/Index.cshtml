@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<WebApplicationRs2.Models.Commentaire>
+
+<div class="jumbotron">
+    <div class="container">
+
+        <h1>Hello ,   @(((WebApplicationRs2.Models.Utilisateur)ViewData["user_connected"]).Prenom) !</h1>
+        <p>Vous pouvez aimer et ajouter des publications.</p>
+        <p>
+           @Html.ActionLink("Ajouter commentaire", "Create")
+        </p>
+    </div>
+</div>
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+
+
+        @foreach (var item in Model)
+        {
+        <div class="col-md-6">
+            <h2>
+                <span class="glyphicon glyphicon-heart" aria-hidden="true">
+                </span>
+                <span class="glyphicon-class">
+                    @Html.DisplayFor(modelItem => item.nbJaime)
+                </span>
+            </h2>
+            <p>
+                @Html.DisplayFor(modelItem => item.Description)
+            </p>
+            <p>
+
+                @Html.ActionLink("J'aime", "Jaime", new { id = item.Id }, htmlAttributes: new { title = "Jaime", @class = "btn btn-primary" }) 
+
+                @if (((WebApplicationRs2.Models.Utilisateur)ViewData["user_connected"]).Id == item.createByUser)
+                {
+                    <span>
+                        |
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.Id })
+                    </span>
+                    <span>
+                        |
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
+                    </span>
+                 }
+                <p>
+
+        </div>
+        }
+        </div>
+
+    <hr>
+
+</div> <!-- /container -->

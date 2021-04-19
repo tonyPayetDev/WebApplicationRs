@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Test">
+  <DataContextMoniker Name="/TestDataContext" />
+  <nestedChildShapes>
+    <classShape Id="03d52aa9-ab19-4356-aa22-8d23f421b456" absoluteBounds="2.75, 4.625, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/TestDataContext/Commentaires" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c53446c-aa7c-4ea2-81e3-48837d26238a" absoluteBounds="2.765, 5.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6930f3ad-0e66-4a26-8328-d54a62ab65ef" absoluteBounds="2.75, 1.375, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/TestDataContext/Utilisateurs" />
+      <nestedChildShapes>
+        <elementListCompartment Id="841e1902-ca91-4528-9bc9-c20d790bcad8" absoluteBounds="2.765, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="990d002a-d94f-4929-886e-c36b62d9f807" absoluteBounds="5.5, 1.375, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/TestDataContext/Votes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88db4ede-b4f0-4877-8be4-39ac4c05b89c" absoluteBounds="5.5150000000000006, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 5.51044840494792); (6.5 : 5.51044840494792); (6.5 : 2.7612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TestDataContext/Commentaires/Commentaires_Votes" />
+      <nodes>
+        <classShapeMoniker Id="03d52aa9-ab19-4356-aa22-8d23f421b456" />
+        <classShapeMoniker Id="990d002a-d94f-4929-886e-c36b62d9f807" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.75 : 2.06814697265625); (5.5 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TestDataContext/Utilisateurs/Utilisateurs_Votes" />
+      <nodes>
+        <classShapeMoniker Id="6930f3ad-0e66-4a26-8328-d54a62ab65ef" />
+        <classShapeMoniker Id="990d002a-d94f-4929-886e-c36b62d9f807" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

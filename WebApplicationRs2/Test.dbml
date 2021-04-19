@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="bdrstony" Class="TestDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-CSF6BDE\SQLEXPRESS;Initial Catalog=bdrstony;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="OutilsADV_RECConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Commentaires" Member="Commentaires">
+    <Type Name="Commentaires">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="nbJaime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="createByUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Commentaires_Votes" Member="Votes" ThisKey="Id" OtherKey="Commentaire_Id" Type="Votes" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Utilisateurs" Member="Utilisateurs">
+    <Type Name="Utilisateurs">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MotDePasse" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Utilisateurs_Votes" Member="Votes" ThisKey="Id" OtherKey="Utilisateur_Id" Type="Votes" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Votes" Member="Votes">
+    <Type Name="Votes">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Commentaire_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Utilisateur_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Commentaires_Votes" Member="Commentaires" ThisKey="Commentaire_Id" OtherKey="Id" Type="Commentaires" IsForeignKey="true" />
+      <Association Name="Utilisateurs_Votes" Member="Utilisateurs" ThisKey="Utilisateur_Id" OtherKey="Id" Type="Utilisateurs" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
